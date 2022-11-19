@@ -24,9 +24,9 @@ const Register = () => {
         }}>
         Please submit your data for the registration process
       </Text>
-      <Input placeholder="full name" />
-      <Input placeholder="email" />
-      <Input placeholder="password" />
+      <Input placeholder="Full Name" />
+      <Input placeholder="Email" />
+      <Input placeholder="Password" />
     </View>
   );
 };
