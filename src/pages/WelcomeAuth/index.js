@@ -5,7 +5,11 @@ import {colors} from '../../utils';
 
 import ActionButton from './ActionButton';
 
-const WelcomeAuth = () => {
+const WelcomeAuth = ({navigation}) => {
+  const handleGoTo = screen => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.wrapper.page}>
       <Image source={welcomeAuth} style={styles.wrapper.illustration} />
@@ -13,10 +17,12 @@ const WelcomeAuth = () => {
       <ActionButton
         desc="Please Sign In if you already have an account"
         title="Masuk"
+        onPress={() => handleGoTo('Login')}
       />
       <ActionButton
         desc="or you can Sign Up here if do not have an account yet"
         title="Daftar"
+        onPress={() => handleGoTo('Register')}
       />
     </View>
   );
