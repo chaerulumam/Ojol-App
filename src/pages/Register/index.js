@@ -1,10 +1,32 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {Input} from '../../components';
 
 const Register = () => {
   return (
-    <View>
-      <Text>Register Page</Text>
+    <View style={{padding: 20}}>
+      <View style={{width: 25, height: 25, backgroundColor: 'blue'}} />
+      <View
+        style={{
+          width: 106,
+          height: 115,
+          backgroundColor: 'purple',
+          marginTop: 8,
+        }}
+      />
+      <Text
+        style={{
+          fontSize: 14,
+          fontWeight: 'bold',
+          color: 'purple',
+          marginTop: 16,
+          maxWidth: 200,
+        }}>
+        Please submit your data for the registration process
+      </Text>
+      <Input placeholder="full name" />
+      <Input placeholder="email" />
+      <Input placeholder="password" />
     </View>
   );
 };

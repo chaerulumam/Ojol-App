@@ -16,12 +16,12 @@ const WelcomeAuth = ({navigation}) => {
       <Text style={styles.text.welcome}>Welcome to O-JOL</Text>
       <ActionButton
         desc="Please Sign In if you already have an account"
-        title="Masuk"
+        title="Sign In"
         onPress={() => handleGoTo('Login')}
       />
       <ActionButton
         desc="or you can Sign Up here if do not have an account yet"
-        title="Daftar"
+        title="Sign Up"
         onPress={() => handleGoTo('Register')}
       />
     </View>
