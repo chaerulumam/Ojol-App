@@ -5,11 +5,33 @@ const initialState = {
 };
 
 const initialStateRegister = {
+  form: {
+    fullName: '',
+    email: '',
+    password: '',
+  },
   title: 'Register Page',
   desc: 'This is a Register page',
 };
 
 const ReducerRegister = (state = initialStateRegister, action) => {
+  if (action.type === 'SET_TITLE') {
+    return {
+      ...state,
+      title: 'Change register Title',
+    };
+  }
+
+  if (action.type === 'SET_FORM') {
+    return {
+      ...state,
+      form: {
+        ...state.form,
+        [action.inputType]: action.inputValue,
+      },
+    };
+  }
+
   return state;
 };
 

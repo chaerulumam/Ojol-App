@@ -3,30 +3,32 @@ import {ScrollView, Text, View} from 'react-native';
 import {Button, Input} from '../../components';
 import {colors} from '../../utils';
 import {IconBack, IllustrationRegister} from '../../assets';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Register = () => {
   const ReducerRegister = useSelector(state => state.ReducerRegister);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log('Register: ', ReducerRegister);
-  }, [ReducerRegister]);
+  // useEffect(() => {
+  //   console.log('Register: ', ReducerRegister);
+  // }, [ReducerRegister]);
 
-  const [form, setForm] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-  });
+  // const [form, setForm] = useState({
+  //   fullName: '',
+  //   email: '',
+  //   password: '',
+  // });
 
   const sendData = () => {
-    console.log('Data yg dikirim: ', form);
+    console.log('Data yg dikirim: ', ReducerRegister.form);
   };
 
   const onInputChange = (value, input) => {
-    setForm({
-      ...form,
-      [input]: value,
-    });
+    // setForm({
+    //   ...form,
+    //   [input]: value,
+    // });
+    dispatch({type: 'SET_FORM', inputType: input, inputValue: value});
   };
 
   return (
@@ -45,19 +47,19 @@ const Register = () => {
         <View style={styles.space(64)} />
         <Input
           placeholder="Full Name"
-          value={form.fullname}
+          value={ReducerRegister.form.fullname}
           onChangeText={value => onInputChange(value, 'fullName')}
         />
         <View style={styles.space(33)} />
         <Input
           placeholder="Email"
-          value={form.email}
+          value={ReducerRegister.form.email}
           onChangeText={value => onInputChange(value, 'email')}
         />
         <View style={styles.space(33)} />
         <Input
           placeholder="Password"
-          value={form.password}
+          value={ReducerRegister.form.password}
           onChangeText={value => onInputChange(value, 'password')}
           secureTextEntry={true}
         />
