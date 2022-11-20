@@ -4,31 +4,18 @@ import {Button, Input} from '../../components';
 import {colors} from '../../utils';
 import {IconBack, IllustrationRegister} from '../../assets';
 import {useDispatch, useSelector} from 'react-redux';
+import {setForm} from '../../redux';
 
 const Register = () => {
-  const ReducerRegister = useSelector(state => state.ReducerRegister);
+  const {form} = useSelector(state => state.ReducerRegister);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log('Register: ', ReducerRegister);
-  // }, [ReducerRegister]);
-
-  // const [form, setForm] = useState({
-  //   fullName: '',
-  //   email: '',
-  //   password: '',
-  // });
-
   const sendData = () => {
-    console.log('Data yg dikirim: ', ReducerRegister.form);
+    console.log('Data yg dikirim: ', form);
   };
 
-  const onInputChange = (value, input) => {
-    // setForm({
-    //   ...form,
-    //   [input]: value,
-    // });
-    dispatch({type: 'SET_FORM', inputType: input, inputValue: value});
+  const onInputChange = (value, inputType) => {
+    dispatch(setForm(inputType, value));
   };
 
   return (
@@ -41,25 +28,24 @@ const Register = () => {
           style={styles.illustration}
         />
         <Text style={styles.text.desc}>
-          Please submit your data for the registration process{' '}
-          {ReducerRegister.title}
+          Please submit your data for the registration process
         </Text>
         <View style={styles.space(64)} />
         <Input
           placeholder="Full Name"
-          value={ReducerRegister.form.fullname}
+          value={form.fullname}
           onChangeText={value => onInputChange(value, 'fullName')}
         />
         <View style={styles.space(33)} />
         <Input
           placeholder="Email"
-          value={ReducerRegister.form.email}
+          value={form.email}
           onChangeText={value => onInputChange(value, 'email')}
         />
         <View style={styles.space(33)} />
         <Input
           placeholder="Password"
-          value={ReducerRegister.form.password}
+          value={form.password}
           onChangeText={value => onInputChange(value, 'password')}
           secureTextEntry={true}
         />
