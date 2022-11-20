@@ -3,8 +3,11 @@ import {ScrollView, Text, View} from 'react-native';
 import {Button, Input} from '../../components';
 import {colors} from '../../utils';
 import {IconBack, IllustrationRegister} from '../../assets';
+import {useSelector} from 'react-redux';
 
 const Register = () => {
+  const globalState = useSelector(state => state);
+
   const [form, setForm] = useState({
     fullName: '',
     email: '',
@@ -32,7 +35,8 @@ const Register = () => {
           style={styles.illustration}
         />
         <Text style={styles.text.desc}>
-          Please submit your data for the registration process
+          Please submit your data for the registration process{' '}
+          {globalState.name}
         </Text>
         <View style={styles.space(64)} />
         <Input
